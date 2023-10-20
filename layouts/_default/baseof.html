@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title> {{ .Title }} • {{ .Site.Title }} </title>
+        <meta name="description" content="{{ if .Description }}{{ .Description }}
+        {{ else }} {{ .Site.Params.description }}{{ end }}">
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="apple-touch-icon" sizes="180x180"  href="/favicon.ico"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico"> 
+        <link rel="icon" type="image/png" sizes="16x16"  href="/favicon.ico"> 
+
+        <!-- Facebook Open Graph tags -->
+        <meta property="og:url" content="{{ .Site.BaseURL}}" />
+        <meta property="og:title" content="{{ .Title }}" />
+        <meta property="og:description" content="{{ if .Description }}{{ .Description }}
+        {{ else }} {{ .Site.Params.description }}{{ end }}" />
+        <meta property="og:image" content="{{ .Site.BaseURL}}/card.jpg" />
+
+
+        <!-- Twitter Card (large image card) tags -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:creator" content="@{{.Site.Author.twitter}}">
+        <meta name="twitter:title" content="{{ .Title }}">
+        <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}
+        {{ else }} {{ .Site.Params.description }}{{ end }}" />
+        <meta name="twitter:image" content="{{ .Site.BaseURL}}/card.jpg" />
+
+        <link rel="alternate" type="application/rss+xml" 
+          title="RSS Feed for {{ .Site.Title }}." 
+          href="/index.xml" />
+        <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+        <style>
+                .p5Canvas{
+                        position: fixed;
+                        top: 0px;
+                        left: 0px;
+                        z-index: -1;
+                }
+        </style>
+</head>
+
+<body> 
+        <nav>
+                <a href="/"> home </a>
+        </nav>
+        {{- block "main" . }}
+        {{- end }}
+
+        <!-- {{ partial "footer" }} -->
+
+<script>
+        function setup() {
+                createCanvas(window.innerWidth, window.innerHeight);
+                colorMode(HSB, 360, 120, 100, 255);
+                background(255);
+                noStroke();
+                strokeWeight(0.1);
+                let rez1 = 0.0007; 
+                let rez2 = 0.0005; 
+                let gap = 20;
+                let len = 10;
+                let startVary = 20;
+                let startCol = random(360);
+                strokeCap(SQUARE);
+                for (let i = -20; i < width+20; i += gap) {
+                    for (let j = -20; j < height+20; j += gap) {
+                        let n2 = (noise (i * rez2, j* rez2)-0.2)*1.7;
+                        let h = floor(n2*5)*72 + startCol;
+                        if (h>360){
+                            h-=360
+                        }
+                        stroke(random(50));
+                        let x = i + random(-startVary,startVary);
+                        let y = j + random(-startVary,startVary);
+                        for (let k = 10; k > 0; k--) {
+                            strokeWeight(k*0.01);
+                            let n1 = (noise(x * rez1, y * rez1)-0.2)*1.7;
+                            let ang = n1 * PI * 2;
+                            let newX = cos(ang) * len + x;
+                            let newY = sin(ang) * len + y;
+                            line(x, y, newX, newY);
+                            x = newX;
+                            y = newY;
+                        }
+                    }
+                }
+            };
+        
+</script>
+</body>
+</html>

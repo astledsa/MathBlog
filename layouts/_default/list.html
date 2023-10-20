@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <main>
+    <h1> {{ .Title}} </h1>
+      {{ .Content }}
+      <br>
+          {{ range .Pages.ByDate.Reverse }}
+              <div class=post>
+                   <h3><a href="{{ .Permalink }}"> {{ .Title }} </a></h3>
+                   <span class=post-description> {{ .Description | markdownify }} </span>
+              </div>
+          {{ end }}
+  </main>
+{{ end }}

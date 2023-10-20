@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+  <p> Taxonomy pages let you filter to posts with certain tags or categories, of which you can learn more about in the <a href="https://gohugo.io/content-management/taxonomies/">Hugo documentation</a>. </p>
+
+  <p> For example, this page lists all posts with the tag "{{ .Title }}". </p>
+  <br>
+
+  {{ range .Pages }}
+    <h3>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h3>
+  {{ end }}
+       
+{{ end }}
+

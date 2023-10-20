@@ -1,0 +1,22 @@
+baseURL = "https://hugo-starter-site.netlify.app"
+languageCode = "en-us"
+title = "mathblog"
+copyright = "whatever."
+
+rssLimit = 20
+staticDir = "static"
+canonifyURLs = true
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+  
+[author]
+	name = "Astle"
+	email = "none"
+
+[params]
+  description = "hehe"
+
+[markup.goldmark.renderer]
+    unsafe = "true"

@@ -1,0 +1,16 @@
+{{ define "main" }}
+      <main class=blog-text style="border: 1px solid black;">
+            <div class="h1-container"><h1> {{ .Title }} </h1></div>
+            {{ .Content }}
+      </main>
+      <script type="text/javascript" >
+            document.addEventListener("DOMContentLoaded", function() {
+                    renderMathInElement(document.body, {
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "$", right: "$", display: false}
+                        ]
+                    });
+                });
+      </script>
+{{ end }}

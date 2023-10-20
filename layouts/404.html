@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <title> 404 </title>
+        <meta name="description" content="{{ if .Description }}{{ .Description }}
+        {{ else }} {{ .Site.Params.description }}{{ end }}">
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="apple-touch-icon" sizes="180x180"  href="/favicon.ico"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico"> 
+        <link rel="icon" type="image/png" sizes="16x16"  href="/favicon.ico"> 
+
+        <!-- Facebook Open Graph tags -->
+        <meta property="og:url" content="{{ .Site.BaseURL}}" />
+        <meta property="og:title" content="{{ .Title }}" />
+        <meta property="og:description" content="{{ if .Description }}{{ .Description }}
+        {{ else }} {{ .Site.Params.description }}{{ end }}" />
+        <meta property="og:image" content="{{ .Site.BaseURL}}/card.jpg" />
+
+
+        <!-- Twitter Card (large image card) tags -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:creator" content="@{{.Site.Author.twitter}}">
+        <meta name="twitter:title" content="{{ .Title }}">
+        <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}
+        {{ else }} {{ .Site.Params.description }}{{ end }}" />
+        <meta name="twitter:image" content="{{ .Site.BaseURL}}/card.jpg" />
+
+        <link rel="alternate" type="application/rss+xml" 
+          title="RSS Feed for {{ .Site.Title }}." 
+          href="/index.xml" />
+        <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+</head>
+
+<body>
+    <header>
+    	<h1> 404 </h1>
+    </header>
+
+    <main style=text-align:center>
+    	<h2> This page doesn't exist. </h2>
+    	<p> And yet, here you are.  </p>
+    </main>
+
+    {{ partial "footer.html" . }}
+</body>
+
+</html>

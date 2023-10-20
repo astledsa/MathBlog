@@ -1,0 +1,169 @@
+  @font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    src: url('/fonts/Raleway.woff2');
+    font-display: swap;
+    font-weight: 1 999;  
+  }
+
+  :root{
+    --font-family: system-ui;
+    --background: #FFFFFF;
+    --text: rgb(90,90,90);
+  }
+
+  body{
+    text-align: center;
+    background: var(--background);
+    margin: 0%;
+    font-family: var(--font-family);
+    color: var(--text);
+    font-size: 17px;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  main{
+    padding: 2rem;
+    box-sizing: border-box;
+    max-width: 45rem;
+    width: 100%;
+    line-height: 1.6em;
+    display: inline-block;
+    text-align: left;
+    margin-top: 4rem;
+  }
+  .h1-container {
+    text-align: center;
+  }
+  .blog-text{
+    background: #fdfdfd;
+    margin-top: 0rem;
+  }
+
+  nav{
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    padding: 1rem 0rem 1rem 0rem;
+  }
+
+  header{
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 3em;
+  }
+
+  header a{
+    color: inherit;
+    text-decoration: none;
+    margin: 0rem 2rem;
+    font-style: italic;
+    padding: 4px 5px;
+    font-weight: 400;
+  }
+
+  header a:hover{
+    background: #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  li{
+    margin: 0.5rem 0rem ;
+  }
+
+  h1{
+    font-size: 2.0rem;
+    line-height: 1.2em;
+    font-weight: 900;
+    margin: 0em 0em 0.5em 0.8em;
+    text-align: center;
+    max-width: 45rem;
+    display: inline-block;
+    font-family: Raleway;
+  }
+
+  h2, h3{
+    text-align: center;
+    margin: 2em 0em 0.75em 0em;
+    line-height: 1.3em;
+  }
+  .blogTitle {
+    text-align: left;
+  }
+  .post{
+    margin-bottom: 1.8rem;
+  }
+
+  .post h3{
+    margin: 1em 0em 0em 0em;
+  }
+  .post-description{
+    text-align: left;
+    font-size: 0.9rem;
+    color: grey;
+  }
+
+  a{
+     color: var(--theme);
+     text-decoration: none;
+     font-weight: 800;
+     padding-left: 0.5rem;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  blockquote{
+    border-left: solid 4px var(--text);
+    padding-left: 1.5rem;
+    margin: 2rem 1rem;
+  }
+
+  section{
+    column-count: 2;
+    column-gap: 4rem;
+  }
+  h3 a {
+    padding: 0;
+  }
+
+  p{
+    margin: 0px 0px 1.2rem 0px;
+  }
+  img{
+    width: 100%;
+    margin: 1rem 0rem;
+  }
+
+  table{
+    column-span: all;
+    width: 100%;
+    text-align: left;
+    margin: 2rem 0rem;  
+  }
+
+  th{
+    font-size: 2rem;
+  }
+
+  td{
+    padding: 1rem 0rem;
+  }
+
+  footer{
+    width: 100%;
+    border-top: solid 0.5px black;
+    padding: 1rem 0rem;
+    font-size: 14px;
+    background: var(--text);
+    color: var(--background);
+    font-weight: 200;
+    position: absolute;
+    bottom: 0px;
+  }
+ 

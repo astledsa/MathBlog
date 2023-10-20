@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <title> {{ .Site.Title }} </title>
+        <meta name="description" content="{{ if .Description }}{{ .Description }}
+        {{ else }} {{ .Site.Params.description }}{{ end }}">
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="apple-touch-icon" sizes="180x180"  href="/favicon.ico"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico"> 
+        <link rel="icon" type="image/png" sizes="16x16"  href="/favicon.ico"> 
+
+        <!-- Facebook Open Graph tags -->
+        <meta property="og:url" content="{{ .Site.BaseURL}}" />
+        <meta property="og:title" content="{{ .Title }}" />
+        <meta property="og:description" content="{{ if .Description }}{{ .Description }}
+        {{ else }} {{ .Site.Params.description }}{{ end }}" />
+        <meta property="og:image" content="{{ .Site.BaseURL}}/card.jpg" />
+
+
+        <!-- Twitter Card (large image card) tags -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:creator" content="@{{.Site.Author.twitter}}">
+        <meta name="twitter:title" content="{{ .Title }}">
+        <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}
+        {{ else }} {{ .Site.Params.description }}{{ end }}" />
+        <meta name="twitter:image" content="{{ .Site.BaseURL}}/card.jpg" />
+
+        <link rel="alternate" type="application/rss+xml" 
+          title="RSS Feed for {{ .Site.Title }}." 
+          href="/index.xml" />
+        <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+        <style>
+                .p5Canvas{
+                        position: fixed;
+                        top: 0px;
+                        left: 0px;
+                        z-index: -1;
+                }
+        </style>
+</head>
+
+<body>
+    <header>
+        <h1> {{ .Title }} </h1>
+    </header>
+    <main>
+        {{ .Content }}
+
+        {{ range (where .Site.RegularPages.ByTitle "Section" "blog" ) }}
+              <div class=post>
+                   <h3 class="blogTitle"><a href="{{ .Permalink }}"> {{ .Title }} </a></h3>
+                   <span class=post-description> {{ .Description | markdownify }} </span>
+              </div>
+          {{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+    <script type="text/javascript">
+
+            let numberOfParticles = 1000;  
+            let maxIterations = 500;
+            let inc = 0.1;
+            let scl = 25;
+            let cols, rows;
+            let zoff = 0, count = 0;;
+            let fr;
+            let particles = [];
+            let flowfield;
+    
+            class Particle {
+                constructor() {
+                    this.pos = createVector(random(width), random(height));
+                    this.vel = createVector(0, 0);
+                    this.acc = createVector(0, 0);
+                    this.maxspeed = 4;
+                    this.prevPos = this.pos.copy();
+                }
+                update() {
+                    this.vel.add(this.acc);
+                    this.vel.limit(this.maxspeed);
+                    this.pos.add(this.vel);
+                    this.acc.mult(0);
+                }
+                follow(vectors) {
+                    let x = floor(this.pos.x / scl);
+                    let y = floor(this.pos.y / scl);
+                    let index = x + y * cols;
+                    let force = vectors[index];
+                    this.applyForce(force);
+                }
+                applyForce(force) {
+                    this.acc.add(force);
+                }
+                show() {
+                    stroke(200, 10);
+                    strokeWeight(1);
+                    line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
+                    this.updatePrev();
+                }
+                updatePrev() {
+                    this.prevPos.x = this.pos.x;
+                    this.prevPos.y = this.pos.y;
+                }
+                edges() {
+                    if (this.pos.x > width) {
+                        this.pos.x = 0;
+                        this.updatePrev();
+                    }
+                    if (this.pos.x < 0) {
+                        this.pos.x = width;
+                        this.updatePrev();
+                    }
+                    if (this.pos.y > height) {
+                        this.pos.y = 0;
+                        this.updatePrev();
+                    }
+                    if (this.pos.y < 0) {
+                        this.pos.y = height;
+                        this.updatePrev();
+                    }
+    
+                }
+            }
+            setup = () => {
+                createCanvas(window.innerWidth, window.innerHeight);
+                background(255);
+                cols = floor(width / scl);
+                rows = floor(height / scl);
+                fr = createP('');
+                flowfield = new Array(cols * rows);
+                for (let i = 0; i < numberOfParticles; i++) {
+                    particles[i] = new Particle();
+                }
+            }
+            draw = () => {
+                let yoff = 0;
+                for (let y = 0; y < rows; y++) {
+                    let xoff = 0;
+                    for (let x = 0; x < cols; x++) {
+                        let index = x + y * cols;
+                        let angle = noise(xoff, yoff, zoff) * TWO_PI * 2;
+                        let v = p5.Vector.fromAngle(angle);
+                        v.setMag(1);
+                        flowfield[index] = v;
+                        xoff += inc;
+                        stroke(0, 50);
+                    }
+                    yoff += inc;
+                    zoff += 0.0003;
+                }
+    
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].follow(flowfield);
+                    particles[i].update();
+                    particles[i].edges();
+                    particles[i].show();
+                }
+                count ++;
+                if (count >= maxIterations) {
+                    noLoop();
+                }
+            }
+    </script>
+</body>
+
+</html>
