@@ -77,7 +77,7 @@ The above given answer is an important expression: it is our gradient, construct
 The above graph should make things clear about how the gradients are calculated, how they accumulate in the variable r, before going on to give us each seperate gradients of *x* and *y*. Precisely what makes this algorithm so powerful is it's ability to calculate <u>multiple</u> derivatives, or derivaties of multiple inputs all at ounce. We simple have to write an equation, and start the backpropagation process! The algorithm will accurately calculate each partial derivative value, putting computer's biggest strength of automation to good use. But we are far from over: this algorithm, as it is, is useful for scalar values only: we need to take into account multi-dimensional inputs as well, hence enter **Vector Calculus**. We shall look into it in the next essay !
 
 <p style="text-align: center;">
-<i><a href="/blog/nnla2/">Continure Reading</a></i>
+<i><a href="/blog/autograd2/">Continure Reading</a></i>
 <br>
 <strong><a href='/'>Home</a></strong>
 </p>
