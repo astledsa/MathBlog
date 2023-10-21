@@ -50,7 +50,7 @@ With this, we have a loss function with multi-dimensional outputs. This particul
 
 What is a derivative ? It is the slope of a curved line. But another way of looking at it, is that a derivative is simply a way to establish a relationship between a function, and it's variables. Let's see a simple example,
 
-$$ \begin{array}{l}
+$$\begin{array}{l}
 y=w^{2}\\
 or\\
 f( x) =w^{2}
