@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://hugo-starter-site.netlify.app"
 languageCode = "en-us"
 title = "mathblog"
 copyright = "whatever."
@@ -13,10 +13,10 @@ canonifyURLs = true
   
 [author]
 	name = "Astle"
-	email = "none"
+	email = "astledsa@gmail.com"
 
 [params]
-  description = "hehe"
+  description = "Math, something I love and hate"
 
 [markup.goldmark.renderer]
     unsafe = "true"
