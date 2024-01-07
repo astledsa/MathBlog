@@ -1,5 +1,5 @@
 ---
-title: Exploring Architectures- RNN II
+title: Word-to-Vector Embeddings
 description: Road to find meaning
 ---
 
@@ -50,7 +50,7 @@ With this, we have finally arrived at the last and final step of this iteration:
 
 Our model has finally learned from it's mistake, *ounce*. We simply have to keep doing the results until we can get to sufficiently low loss function (but not zero, or too low). 
 
-## RNN's Inference
+## Internal Meaning
 
 After coming this far, you must be wondering, what on earth has this got to do with understanding language at all ? All we did was a bunch of linear algebra! Where was the part where our model/network understands language? You feel that way partly because we tackled this problem with pure mathematics, and hence it is very tough to see any intuitive meaning beyond what we see mathematically. If we had actually coded this model, it would still be a bit unclear. Thus for further clarity and to actually show what exactly did our model learn, and why this technique, though seemingly random at first, has very fascinating results, we can easily get an example. For this purpose, I had trained a model on the previous techniques (though I used some more layers), on a bunch of positive, negative and neutral sentences and had it guess the sentence's sentiment. Our model, in order to guess the sentiment of a sentence, must find correlations between the words that make up the sentence, and use those correlations to predict the sentiment. For instance, it might associate the word 'beautiful' with a positive sentiment, and the word 'terrible' with a more negative sentiment, as in if these words appear in a sentence, the guess would slightly (or significantly, depends on the sentence), tilt towards the associated sentiment, i.e, a sentence with 'beautiful' in it might more probably be a positive one, and a sentence with 'terrible' in it will more probably be a negative one. So, we simply write a function that finds words that the model thinks are *similiar* to the word 'beautiful'. Here are the results: 
 
