@@ -1,9 +1,9 @@
 ---
-title: Exploring Architectures- RNN 
+title: Word-to-Vector Embeddings
 description: Understanding language
 ---
 
-One of the biggest, if not THE biggest use cases for artificial intelligence is to mimic our language. This has been acheived to a very high extent by current state-of-the-art models like chatGPT and llama. Although these models have different architectures, knowing intuitively how these models learn to interepret language through much simpler and rudimentary models can pave the way onto learning the current most powerful ones. Thus we begin with recurrent neural networks, one of the first models used in natural language processing or NLP. 
+One of the biggest, if not THE biggest use cases for artificial intelligence is to mimic our language. This has been acheived to a very high extent by current state-of-the-art models like chatGPT and llama. Although these models have different architectures, knowing intuitively how these models learn to interepret language through much simpler and rudimentary models can pave the way onto learning the current most powerful ones. Before learning about said models, we must explore how exactly these models embed words, or, create internal representations of words which have some latent meaning.
 
 ## Natural Language Processing
 
