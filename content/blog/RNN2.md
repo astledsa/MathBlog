@@ -1,5 +1,5 @@
 ---
-title: Word-to-Vector Embeddings
+title: Word-to-Vector Embeddings II
 description: Road to find meaning
 ---
 
