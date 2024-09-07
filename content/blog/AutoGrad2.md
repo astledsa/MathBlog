@@ -1,6 +1,7 @@
 ---
 title: Automatic Differentiation II
 description: The more the merrier (especially dimensions)
+date: 2023-10-23
 ---
 
 In the last essay, we saw how we can calculate the gradients of scalar functions, by implementating backpropagation through a graph data structure. The implementation process was preceded by the theory behind both the graph data structure and the chain rule. The final algorithm was very useful in calculating *scalar* values, but we must not forget multi-dimensional inputs. At times (most of the times actually), we need gradients on vector valued functions, not scalar. Therefore, in this continuation essay, we shall explore *Vector calulus* and how it fits in Automatic Differentiation.

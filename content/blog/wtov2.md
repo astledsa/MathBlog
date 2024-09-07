@@ -1,6 +1,7 @@
 ---
 title: Word-to-Vector Embeddings II
 description: Road to find meaning
+date: 2024-01-06
 ---
 
 ## Backpropagation

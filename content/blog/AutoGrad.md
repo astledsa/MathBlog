@@ -1,6 +1,7 @@
 ---
 title: Automatic Differentiation
 description: Computers do differentiation much better than us, here's why
+date: 2023-10-22
 ---
 
 Computing derivatives can be useful and necessary in many fields, and yet difficult to actually implement. Standing apart from other methods for computing derivaitves, Automatic Differentiation is the most accurate we can get. There are multiple reasons for using this technique, some of them are: it plays right into a computer's strength of performing simple operations on a variable or two, it provides accurate results, at least compared to other methods and due to it's structure is very convenient for calculating gradients (derivatives or simply slope) of multiple inputs. A major use case is in artificial intelligence, namely Deep Learning, where familiarity with automatic differentiation is a must, and major frameworks are made just for the ease of calculating derivatives (plus other data science stuff). According to naming conventions, it is called autograd (automatic gradients) and thus will be referred to as such henceforth. AutoGrad relies on two things: the mathematical theory of chain rule and the computer science theory of graphs, and how we can implement them both in order to create what we want. We shall go over the theories below.

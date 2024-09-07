@@ -1,6 +1,7 @@
 ---
 title: Neural Networks with Linear Algebra II
 description: Going <i>deeper</i> into neural networks
+date: 2023-10-25
 ---
 
 ## Part III

@@ -1,6 +1,7 @@
 ---
 title: Exploring architectures- LSTMs
 description: The problem of memory loss, and it's cure
+date: 2024-01-10
 ---
 
 ## Introduction 

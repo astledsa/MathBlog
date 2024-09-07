@@ -1,6 +1,7 @@
 ---
 title: Neural Ordinary Differential Equations
 description: From discrete -> continuous 
+date: 2024-01-13
 ---
 
 ## Introduction

@@ -1,6 +1,7 @@
 ---
 title: Neural Networks with Linear Algebra
 description: <i>f</i>(Linear Algebra) -> Neural Networks
+date: 2023-10-24
 ---
 
 The following essay will be an attempt in looking at Neural Networks through the lens of Linear Algebra. Neural Networks (or Machine Learning in general) are mathematically defined and can also be seen as an application of Linear Algeba itself, with the amalgation of calculus resulting in Vector Calculus. Learning this topic through a mathematical viewpoint often leads to understanding of the why of Neural Networks (or Machine Learning in general), why certain formulas are applied/used, and why they are effective. The knowledge behind how is mostly grounded in computer science, and fascinating though it is, I will mostly try to avoid it. The programming, data structures and algorithms utilized for implementing the concepts in Linear Algebra will not be covered in this essay. 

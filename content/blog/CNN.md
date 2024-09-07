@@ -1,6 +1,7 @@
 ---
 title: Exploring Architectures- CNN
 description: Convolutional Nerual Networks (math that gives vision)
+date: 2024-01-07
 ---
 
 In the essays that I have written before about Neural Networks and how they can be seen as simply an implementation of Linear Algebra and Vector calculus, I found that explaining them through this perspective exposed me to some new concepts and a new way of looking at Neural Networks. Thus followig these topics, in the upcoming essays, I will explore the different architectures of Neural Networks, following the same procedure of using only math to construct them. 

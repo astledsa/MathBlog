@@ -1,6 +1,7 @@
 ---
 title: Exploring Architectures- CNN II
 description: It just got more <i>convoluted</i>
+date: 2024-01-08
 ---
 
 ## Building upto: Backpropagation

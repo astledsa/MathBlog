@@ -1,6 +1,7 @@
 ---
 title: Exploring architectures- RNN
 description: Recursion, ounce again
+date: 2024-01-09
 ---
 
 ## Introduction

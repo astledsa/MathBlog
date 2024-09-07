@@ -93,10 +93,12 @@
   .blogTitle {
     text-align: left;
   }
+  .desc {
+    font-weight: 500;
+  }
   .post{
     margin-bottom: 1.8rem;
   }
-
   .post h3{
     margin: 1em 0em 0em 0em;
   }

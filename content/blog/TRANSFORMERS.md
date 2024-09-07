@@ -1,6 +1,7 @@
 ---
 title: Exploring architectures- Transformers
 description: Pay attention, from the start
+date: 2024-01-11
 ---
 
 ## Introduction

@@ -1,6 +1,7 @@
 ---
 title: Exploring architectures- Transformers II
 description: A match made in heaven, keys and values
+date: 2024-01-12
 ---
 
 ## Queries, Keys and Values
